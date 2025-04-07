@@ -16,10 +16,6 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 if openai.api_key is None:
     raise ValueError("OpenAI API key is not set. Please set the OPENAI_API_KEY environment variable.")
 
-import openai
-import time
-from openai.error import RateLimitError
-
 # Function to generate a lead
 async def generate_lead(data: dict):
     prompt = f"Generate a lead based on the following information: {data}"
