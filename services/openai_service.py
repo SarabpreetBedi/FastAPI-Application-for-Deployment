@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 import openai
 import time
-from openai.error import RateLimitError
+from openai import RateLimitError
 
 #openai.api_key = "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"
 
