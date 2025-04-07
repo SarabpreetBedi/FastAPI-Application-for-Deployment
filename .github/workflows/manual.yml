@@ -1,0 +1,33 @@
+name: Generate README
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  generate-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create README.md file
+        run: |
+          echo "# Your Project Title" > README.md
+          echo "This is an automatically generated README file." >> README.md
+          echo "## Installation Instructions" >> README.md
+          echo "1. Clone the repository" >> README.md
+          echo "2. Install dependencies" >> README.md
+          echo "## Usage Instructions" >> README.md
+
+      - name: Commit README changes
+        run: |
+          git config --global user.email "youremail@example.com"
+          git config --global user.name "Your Name"
+          git add README.md
+          git commit -m "Generate README.md"
+          git push
